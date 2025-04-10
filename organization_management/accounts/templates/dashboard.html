@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Organization Management</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Dashboard</h1>
+
+        <!-- Check if user has permission to view the dashboard -->
+        {% if perms.yourapp.can_view_dashboard %}
+            <p>Welcome to your dashboard! You have permission to view this page.</p>
+            <ul>
+                <li><a href="{% url 'user_registration' %}">Register a new user</a></li>
+                <li><a href="{% url 'create_organization' %}">Create a new organization</a></li>
+                <li><a href="{% url 'assign_role_to_user' 1 1 %}">Assign role to user</a></li>
+            </ul>
+        {% else %}
+            <p>You do not have permission to view the dashboard.</p>
+        {% endif %}
+
+        <br>
+        <a href="{% url 'home' %}" class="btn btn-secondary">Back to Home</a>
+    </div>
+</body>
+</html>

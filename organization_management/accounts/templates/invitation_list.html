@@ -1,0 +1,48 @@
+<!-- templates/invitation_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Invitation List</title>
+</head>
+<body>
+    <h2>Invitation List</h2>
+
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Invited By</th>
+                <th>Accepted</th>
+                <th>Approved</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for invitation in invitations %}
+                <tr>
+                    <td>{{ invitation.user.username }}</td>
+                    <td>{{ invitation.invited_by.username }}</td>
+                    <td>{{ invitation.accepted }}</td>
+                    <td>{{ invitation.user.is_approved }}</td>
+                    <td>
+                        {% if invitation.accepted and not invitation.user.is_approved %}
+                            <form method="post" action="{% url 'approve_user' invitation.user.id %}">
+                                {% csrf_token %}
+                                <button type="submit">Approve</button>
+                            </form>
+                        {% else %}
+                            -
+                        {% endif %}
+                    </td>
+                </tr>
+            {% empty %}
+                <tr><td colspan="5">No invitations found.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <br>
+    <a href="{% url 'invite_user' %}">Invite Another User</a>
+</body>
+</html>

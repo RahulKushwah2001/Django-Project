@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Role</title>
+</head>
+<body>
+    <h1>Create Role</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <label for="name">Role Name:</label>
+            {{ form.name }}
+        </div>
+        <div>
+            <label for="organization">Organization:</label>
+            {{ form.organization }}
+        </div>
+        <div>
+            <label for="permissions">Permissions:</label>
+            {{ form.permissions }}
+        </div>
+        <button type="submit">Create Role</button>
+    </form>
+
+    <a href="{% url 'home' %}">Back to Home</a>
+</body>
+</html>

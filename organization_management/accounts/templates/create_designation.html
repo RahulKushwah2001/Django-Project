@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Designation</title>
+</head>
+<body>
+    <h1>Create Designation</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <label for="name">Designation Name:</label>
+            {{ form.name }}
+        </div>
+        <div>
+            <label for="organization">Organization:</label>
+            {{ form.organization }}
+        </div>
+        <div>
+            <label for="role">Role:</label>
+            {{ form.role }}
+        </div>
+        <div>
+            <label for="permissions">Permissions:</label>
+            {{ form.permissions }}
+        </div>
+        <button type="submit">Create Designation</button>
+    </form>
+
+    <a href="{% url 'home' %}">Back to Home</a>
+</body>
+</html>

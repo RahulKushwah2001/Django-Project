@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Organization Management</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Welcome to the Organization Management System</h1>
+        <p>Manage organizations, users, roles, and permissions here.</p>
+
+        <div class="mt-3">
+            <a href="{% url 'user_registration' %}" class="btn btn-primary">Register User</a>
+            <a href="{% url 'create_organization' %}" class="btn btn-primary">Create Organization</a>
+        </div>
+
+        <h3 class="mt-4">Manage Users and Roles</h3>
+        <ul>
+            <li><a href="#">List All Users</a></li>
+            <li><a href="#">List All Roles</a></li>
+            <li><a href="#">Assign Roles to Users</a></li>
+        </ul>
+    </div>
+</body>
+</html>

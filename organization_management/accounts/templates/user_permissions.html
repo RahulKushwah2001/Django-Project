@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Permissions</title>
+</head>
+<body>
+    <h1>Your Permissions</h1>
+    <ul>
+        {% for permission in permissions %}
+            <li>{{ permission.name }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
